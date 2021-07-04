@@ -1,0 +1,32 @@
+{
+  "name": "arvis-prettier",
+  "version": "0.0.1",
+  "description": "Run Prettier in Arvis",
+  "main": "index.js",
+  "repository": "https://github.com/jopemachine/arvis-prettier",
+  "author": "Keyan Zhang <root@keyanzhang.com>",
+  "license": "MIT",
+  "keywords": [
+    "arvis",
+    "arvish",
+    "Flow",
+    "Prettier",
+    "arvis-workflow"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-flow-comments": "^7.2.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.3.4",
+    "arvish": ">=0.4.5",
+    "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "postinstall": "arvish-init",
+    "preuninstall": "arvish-cleanup",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "arvish-test": "0.0.3",
+    "jest": "^24.1.0"
+  }
+}

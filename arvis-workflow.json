@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jopemachine/arvis-extension-validator/master/workflow-schema.json",
+  "category": "Tools",
+  "name": "Prettier",
+  "readme": "",
+  "defaultIcon": "icon.png",
+  "webAddress": "https://github.com/jopemachine/arvis-prettier",
+  "description": "Run Prettier in Arvis",
+  "creator": "Keyan Zhang",
+  "version": "0.0.1",
+  "enabled": true,
+  "commands": [
+    {
+      "type": "scriptFilter",
+      "title": "Run Prettier on",
+      "command": "pret",
+      "scriptFilter": "node index.js '{query}'",
+      "runningSubtext": "Hold on a sec until script work is done...",
+      "argType": "optional",
+      "withspace": true,
+      "actions": [
+        {
+          "type": "clipboard",
+          "modifiers": "normal",
+          "text": "{query}"
+        }
+      ]
+    }
+  ]
+}
