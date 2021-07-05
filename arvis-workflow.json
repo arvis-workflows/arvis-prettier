@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/jopemachine/arvis-extension-validator/master/workflow-schema.json",
   "category": "Tools",
-  "name": "Prettier",
+  "name": "arvis-prettier",
   "readme": "",
   "defaultIcon": "icon.png",
   "webAddress": "https://github.com/jopemachine/arvis-prettier",
   "description": "Run Prettier in Arvis",
   "creator": "Keyan Zhang",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "enabled": true,
   "commands": [
     {
