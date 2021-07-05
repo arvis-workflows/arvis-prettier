@@ -26,7 +26,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "arvish-test": "0.0.3",
+    "arvish-test": "0.1.0",
     "jest": "^24.1.0"
   }
 }

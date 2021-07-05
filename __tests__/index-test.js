@@ -41,14 +41,18 @@ function formatOutput(input, output, flowStrippedOutput, flowCommentedOutput) {
 }
 
 test('it works', async () => {
-  const input = `node index.js 'const foo: {[key: string]:number} = {james:12,lucy: 24,ming:235};'`;
+  const input = `node index.js '{query}'`;
+  const query = 'const foo: {[key: string]:number} = {james:12,lucy: 24,ming:235};';
 
-  const arvish = arvishTest();
+  const arvish = arvishTest({
+    vars: { query }
+  });
+
   const result = await arvish(input);
 
   expect(result).toEqual(
     formatOutput(
-      input,
+      query,
       'const foo: {[key: string]: number} = {james: 12, lucy: 24, ming: 235};\n',
       'const foo = {james: 12, lucy: 24, ming: 235};\n',
       'const foo /*: {[key: string]: number}*/ = {james: 12, lucy: 24, ming: 235};\n',
@@ -57,14 +61,18 @@ test('it works', async () => {
 });
 
 test('it supports experimental language features', async () => {
-  const input = `node index.js '@deco class Foo<T>{type: ?number;property:string=('initializer': any);bar:?number=thatCall(12)}'`;
+  const input = `node index.js '{query}'`;
+  const query = `@deco class Foo<T>{type: ?number;property:string=('initializer': any);bar:?number=thatCall(12)}`;
 
-  const arvish = arvishTest();
+  const arvish = arvishTest({
+    vars: { query }
+  });
+
   const result = await arvish(input);
 
   expect(result).toEqual(
     formatOutput(
-      input,
+      query,
       [
         '@deco',
         'class Foo<T> {',
@@ -97,9 +105,13 @@ test('it supports experimental language features', async () => {
 });
 
 test('it reports errors', async () => {
-  const input = `node index.js 'const foo'`;
+  const input = `node index.js '{query}'`;
+  const query = 'const foo';
 
-  const arvish = arvishTest();
+  const arvish = arvishTest({
+    vars: { query }
+  });
+
   const result = await arvish(input);
 
   const errorString = [
